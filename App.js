@@ -61,17 +61,16 @@ const App = () => {
 	};
 
 	return (
-		<SafeAreaView style={backgroundStyle}>
-			<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+		// eslint-disable-next-line react-native/no-inline-styles
+		<SafeAreaView style={{ ...backgroundStyle, flex: 1 }}>
+			<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} translucent={true} backgroundColor="transparent" />
 			<View
 				contentInsetAdjustmentBehavior="automatic"
-				style={{
-					...styles.screen,
-					...backgroundStyle,
-				}}>
-				<Text style={styles.title}>Test printer</Text>
+				style={styles.screen}>
+				{/* eslint-disable-next-line react-native/no-inline-styles*/}
+				<Text style={{ ...styles.title, color: isDarkMode ? '#fff' : '#000', }}>Test printer</Text>
 
-				<Button onPress={testPrint} style={styles.btn}>Print</Button>
+				<Button onPress={testPrint} color="red" style={styles.btn} title="Print" />
 			</View>
 		</SafeAreaView>
 	);
@@ -87,9 +86,9 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		marginBottom: 10,
 	},
-	btn:{
+	btn: {
 		padding: 5,
-	}
+	},
 });
 
 export default App;
